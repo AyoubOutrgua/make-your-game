@@ -18,7 +18,7 @@ This is a single-player implementation of the classic Space Invaders arcade game
 
 1. Clone the repository:
 ```bash
-git clone https://learn.zone01oujda.ma/git/melghama/make-your-game
+git clone https://learn.zone01oujda.ma/git/melghama/make-your-game](https://github.com/AyoubOutrgua/make-your-game.git
 cd make-your-game
 ```
 
@@ -109,5 +109,5 @@ make-your-game/
 - **Responsive Scaling** - Game scales to fit different screen sizes
 
 ## Team
+- **AYOUB OUTRGUA** (aoutrgua)
 - **MOHAMMED EL GHAMARI** (melghama)
-- **AYYOUB OUTRGUA** (aoutrgua)
