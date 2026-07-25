@@ -1,9 +1,14 @@
 import { gameState } from "./gameControl.js"
 
+let board = null;
+let aliensGrid = null;
 let alienExtra = null
+
 export const aliens = []
 export const createAliens = () => {
-    const aliensGrid = document.getElementById('aliens-grid');
+    board = document.getElementById('game-board');
+    aliensGrid = document.getElementById('aliens-grid');
+
     for (let i = 1; i <= 60; i++) {
         const alien = document.createElement('div')
         let points = 0
@@ -47,8 +52,6 @@ export const restAliens = () => {
     if (extra) extra.remove();
 }
 
-const board = document.getElementById('game-board')
-const aliensGrid = document.getElementById('aliens-grid')
 let x = 0, y = 0, direction = 1, speed = 2, dropStep = 5
 let counter = 0
 export const moveAliens = () => {

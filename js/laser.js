@@ -4,7 +4,6 @@ import { aliens, getAlienExtra } from "./moveAliens.js";
 import { wallParts } from "./createBunker.js"
 import { addScore, gameState, changeState } from "./gameControl.js";
 
-const timerDisplay = document.getElementById('timer-display')
 const laserSpeed = 10;
 const cooldownTime = 600;
 let lastShootTime = 0;
@@ -133,6 +132,8 @@ export const moveLasers = () => {
 }
 
 export const moveAlienLasers = () => {
+    const timerDisplay = document.getElementById('timer-display')
+    
     for (let i = alientLaser.length - 1; i >= 0; i--) {
         let laser = alientLaser[i]
         

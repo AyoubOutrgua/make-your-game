@@ -1,7 +1,7 @@
-const bunkerContainer = document.getElementById('bunker-container')
 export const wallParts = []
 
 export const createBunker = () => {
+    const bunkerContainer = document.getElementById('bunker-container')
     wallParts.length = 0; 
     bunkerContainer.innerHTML = "";
     for (let i = 1; i <= 4; i++) {

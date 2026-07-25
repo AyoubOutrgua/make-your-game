@@ -1,6 +1,6 @@
-export const board = document.getElementById('game-board')
-export const playerSection = document.getElementById('player-section')
-export let player = null
+export let board = null;
+export let playerSection = null;
+export let player = null;
 
 let x = 0, step = 4
 
@@ -23,7 +23,6 @@ document.addEventListener("keyup", e => {
 
 export const initPlayerPosition = () => {
     x = (board.offsetWidth -player.offsetWidth) /2;
-    // player.style.left = x + "px"
     player.style.transform = `translate(${x}px, 0px)`
 }
 
@@ -39,11 +38,13 @@ export const movePlayer = () => {
     if (x < 0) x = 0
     const maxX = boardWidth - playerWidth
     if (x > maxX) x = maxX 
-    // player.style.left = x + "px"
     player.style.transform = `translate(${x}px, 0px)`
 }
 
 export const createPlayer = () => {
+    board = document.getElementById('game-board');
+    playerSection = document.getElementById('player-section');
+
     const newPlayer = document.createElement('div')
     newPlayer.id = "player"
     playerSection.append(newPlayer)

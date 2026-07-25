@@ -2,6 +2,10 @@ import { moveAliens, moveAlienExtra } from "./moveAliens.js";
 import { movePlayer, keys } from "./movePlayer.js";
 import { moveLasers, shoot, moveAlienLasers, alientShoot } from "./laser.js";
 import { handlePause, restartGame, getGameTime, initGame, getPauseState, updateTime, checkTimeLimit, toggleView } from "./gameControl.js";
+import { gameScreen } from "./components/gameScreen.js";
+import { createPauseScreen } from "./components/pauseScreen.js";
+import { createGameStatus } from "./components/gameStatus.js";
+import { showIntro } from "./components/history.js";
 
 export const gameLoop = (time) => {
     if (!getPauseState()) {
@@ -20,20 +24,20 @@ export const gameLoop = (time) => {
 };
 
 const startGame = () => {
-    initGame(); 
-    requestAnimationFrame(gameLoop);
+    const container = document.getElementById('game-container');   
+    container.append(gameScreen());
+
+    const introScreen = showIntro(() => {
+        initGame(); 
+        requestAnimationFrame(gameLoop);
+    });
+    
+    container.append(introScreen);
 };
 
 toggleView(startGame);
 
 document.addEventListener("keydown", handlePause);
-document.getElementById("btn-continue").addEventListener("click", handlePause);
-document.getElementById("btn-restart").addEventListener("click", restartGame);
-document.getElementById("btn-play-again").addEventListener("click", () => {
-    const gameStatus = document.getElementById('game-status')
-    gameStatus.classList.remove("visible")
-    restartGame()
-});
 
 const resizeGame = () => {
     const container = document.getElementById('game-container');
